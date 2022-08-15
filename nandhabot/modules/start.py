@@ -6,9 +6,10 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 BANNED = []
 
-START_TEXT = """ Welcome to Nandhas System!
-You can collect details about our channels/bots here
-thanks for visiting our bots!\n
+START_TEXT = """ Welcome to **Nandhas System!**
+
+You can collect details about 
+our channels/bots here thanks for visiting our bots!\n
 **YOUR INFORMATION:**
 Your name: {}
 Your ID: {}
