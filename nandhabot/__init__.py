@@ -1,4 +1,4 @@
-import config
+from config import API_ID, API_HASH, BOT_TOKEN
 import logging
 from pyrogram import Client 
 
@@ -12,7 +12,7 @@ logging.basicConfig(
 
 bot = Client(
   "nandhabot", 
-  api_id=config.API_ID, 
-  api_hash=config.API_HASH, 
-  bot_token=config.BOT_TOKEN, 
+  api_id=API_ID, 
+  api_hash=API_HASH, 
+  bot_token=BOT_TOKEN, 
   plugins=dict(root="{}/modules".format(__name__)))
