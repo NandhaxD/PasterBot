@@ -22,7 +22,7 @@ Keep follow our network and check rules/about/alive details!
 async def start(_, message):
     USER = message.from_user
     if message.from_user.id in BANNED:
-       await message.reply_text("sorry son bitch you can't use this bot")
+       await message.reply_text("sorry son of bitch you can't use this bot")
        return 
     msg = await message.reply_text("Welcome to Nandhas System! Please wait while we finish your info scan...")
     time.sleep(2)
