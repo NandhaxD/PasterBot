@@ -17,7 +17,7 @@ keep follow our network and check about for network/bots details!
 """
 
 
-@bot.on_message(filters.command("start",config.HANDLER))
+@bot.on_message(filters.command("start"))
 async def start(_, message):
     if message.from_user.id in BANNED:
        await message.reply_text("sorry son you can't use bot")
