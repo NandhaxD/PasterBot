@@ -24,7 +24,7 @@ async def start(_, message):
        return 
     msg = message.reply_text("Welcome to Nandhas System! Please wait while we finish your information scan...")
     time.sleep(2)
-    msg.edit(START_TEXT,reply_markup=InlineKeyboardMarkup(
+    msg.edit_text(START_TEXT,reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton("About our Details", callback_data="about"),
                     ],[ InlineKeyboardButton("Our Group", url=f"t.me/{config.support}"),
                        InlineKeyboardButton("Our Updates", url=f"t.me/{config.updates}")]]))
