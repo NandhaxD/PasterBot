@@ -13,7 +13,7 @@ thanks for visiting our bots!\n
 Your name: {}
 Your ID: {}
 
-keep follow our network and check about for network/bots details!
+keep follow our network and check about for channels/network/bots details!
 """
 
 
