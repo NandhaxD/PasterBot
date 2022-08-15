@@ -1,4 +1,5 @@
 import config
+import time
 from nandhabot import bot 
 from pyrogram import filters 
 
@@ -21,6 +22,7 @@ async def start(_, message):
        await message.reply_text("sorry son you can't use bot")
        return 
     msg = message.reply_text("Welcome to Nandhas System! Please wait while we finish your information scan...")
+    time.sleep(2)
     msg.edit(START_TEXT,reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton("About our Details", callback_data="about"),
                     ],[ InlineKeyboardButton("Our Group", url=f"t.me/{config.support}"),
