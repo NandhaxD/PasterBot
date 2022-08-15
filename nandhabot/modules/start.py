@@ -22,7 +22,7 @@ async def start(_, message):
     if message.from_user.id in BANNED:
        await message.reply_text("sorry son you can't use bot")
        return 
-    msg = message.reply_text("Welcome to Nandhas System! Please wait while we finish your information scan...")
+    msg = await message.reply_text("Welcome to Nandhas System! Please wait while we finish your information scan...")
     time.sleep(2)
     msg.edit_text(START_TEXT,reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton("About our Details", callback_data="about"),
