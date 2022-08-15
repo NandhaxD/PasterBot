@@ -4,16 +4,16 @@ from nandhabot import bot
 from pyrogram import filters 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-BANNED = [5555573352]
+BANNED = []
 
 START_TEXT = """ Welcome to Nandhas System!
-You can collect details about our network our bots
+You can collect details about our channels/bots here
 thanks for visiting our bots!\n
 **YOUR INFORMATION:**
 Your name: {}
 Your ID: {}
 
-keep follow our network and check about for channels/network/bots details!
+Keep follow our network and check rules/about/alive details!
 """
 
 
@@ -21,7 +21,7 @@ keep follow our network and check about for channels/network/bots details!
 async def start(_, message):
     USER = message.from_user
     if message.from_user.id in BANNED:
-       await message.reply_text("sorry son you can't use bot")
+       await message.reply_text("sorry son bitch you can't use this bot")
        return 
     msg = await message.reply_text("Welcome to Nandhas System! Please wait while we finish your info scan...")
     time.sleep(2)
