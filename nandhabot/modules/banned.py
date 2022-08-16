@@ -10,7 +10,6 @@ banned_text = """**Nandha System!**
 **Reason:** {}
 """
 
-
 @bot.on_message(filters.command("addban"))
 async def banned(_, message):
         try:
