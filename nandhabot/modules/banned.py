@@ -1,3 +1,4 @@
+import config
 from pyrogram import filters
 from nandhabot import bot 
 from nandhabot.modules.start import BANNED
