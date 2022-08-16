@@ -18,8 +18,8 @@ async def banned(_, message):
                  return 
             elif message.reply_to_message:
                   USER = message.reply_to_message.from_user
-                  text = message.text.split(" ")[1]   
-                  reason = text if text else None
+                  text = message.text.split(" ")[1]  else "No Reason"
+                  reason = text
                   BANNED.append(message.reply_to_message.from_user.id)
                   buttons = [[InlineKeyboardButton("Banned System!" , url="t.me/NandhaSystem")]]
                   await message.reply_text("checkout new banned user!",
