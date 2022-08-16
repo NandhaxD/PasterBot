@@ -5,7 +5,7 @@ from nandhabot.modules.start import BANNED
 
 
 
-@bot.on_message(filters.command("addban") & filters.user(config.OWNER_ID))
+@bot.on_message(filters.command("addban"))
 async def banned(_, message):
         try:
             if message.from_user.id in BANNED:
