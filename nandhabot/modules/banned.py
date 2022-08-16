@@ -1,6 +1,6 @@
 import config
 from pyrogram import filters
-from pyrogram.types import 
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from nandhabot import bot 
 from nandhabot.modules.start import BANNED 
 
