@@ -5,6 +5,8 @@ from nandhabot import bot
 from nandhabot.modules.start import BANNED 
 
 banned_text = """**Nandha System!**
+
+**target msg:** {}
 **Banned user:** {}
 **Banned ID:**  {}
 **Reason:** {}
@@ -30,7 +32,7 @@ async def banned(_, message):
                   reply_markup=InlineKeyboardMarkup(buttons))
                   buttons = [[InlineKeyboardButton("ᴜɴʙᴀɴ" , callback_data="unban"),
                                       InlineKeyboardButton("ᴅᴇʟᴇᴛᴇ" , callback_data="delete")]]
-                  await bot.send_message("@NandhaSystem", banned_text.format(USER.mention,USER.id,reason),
+                  await bot.send_message("@NandhaSystem", banned_text.format(message.reply_to_message.link,USER.mention,USER.id,reason),
                   reply_markup=InlineKeyboardMarkup(buttons))
             else:
                    user_id = message.text.split(" ")[1]
