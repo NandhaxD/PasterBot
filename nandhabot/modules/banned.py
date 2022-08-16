@@ -17,6 +17,7 @@ async def banned(_, message):
                        await message.reply_text("this son of bitch already banned!")
                    elif user.id not in BANNED:
                           BANNED.append(user_id)
+                          await message.reply_text("checkout new banned user!")
         except Exception as e:
                         await message.reply_text(f"Error: {e}")
                          
