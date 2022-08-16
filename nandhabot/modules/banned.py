@@ -18,13 +18,14 @@ async def banned(_, message):
                  return 
             elif message.reply_to_message:
                   USER = message.reply_to_message.from_user
-                  reason = message.text.split(" ")[1]   
+                  text = message.text.split(" ")[1]   
+                  reason = text if text else "No Reason"
                   BANNED.append(message.reply_to_message.from_user.id)
                   buttons = [[InlineKeyboardButton("Banned System!" , url="t.me/NandhaSystem")]]
                   await message.reply_text("checkout new banned user!",
                   reply_markup=InlineKeyboardMarkup(buttons))
                   buttons = [[InlineKeyboardButton("ᴜɴʙᴀɴ" , callback_data="unban"),
-                                      InlineKeyboardButton("ᴜɴʙᴀɴ" , callback_data="delete")]]
+                                      InlineKeyboardButton("ᴅᴇʟᴇᴛᴇ" , callback_data="delete")]]
                   await bot.send_message("@NandhaSystem", banned_text.format(USER.mention,USER.id,reason),
                   reply_markup=InlineKeyboardMarkup(buttons))
             else:
