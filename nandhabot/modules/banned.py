@@ -8,10 +8,10 @@ async def banned(_, message):
             if message.from_user.id in BANNED:
                  await message.reply_text("this son of bitch already banned!")
                  return 
-            elif message.reply_to_message:
-                 BANNED.append(message.reply_to_message.from_user.id)
-                 await message.reply_text("checkout new banned user!")
-             else:
+            elif message.reply_to_message:   
+                  BANNED.append(message.reply_to_message.from_user.id)
+                  await message.reply_text("checkout new banned user!")
+            else:
                    user_id = message.text.split(" ")[1]
                    if user.id in BANNED:
                        await message.reply_text("this son of bitch already banned!")
