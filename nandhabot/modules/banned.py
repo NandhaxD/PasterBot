@@ -22,10 +22,10 @@ async def banned(_, message):
                         reason = message.text.split(" ")[2]
                         user = await bot.get_users(USER)
                         return 
-             elif user_id in BANNED:
+             elif user.id in BANNED:
                        await message.reply_text("this son of bitch already banned!")
-             elif user_id not in BANNED:
-                          BANNED.append(user_id)
+             elif user.id not in BANNED:
+                          BANNED.append(user.id)
                           buttons = [[InlineKeyboardButton("Banned System!" , url="t.me/NandhaSystem")]]
                           await message.reply_text("checkout new banned user!",
                           reply_markup=InlineKeyboardMarkup(buttons))
