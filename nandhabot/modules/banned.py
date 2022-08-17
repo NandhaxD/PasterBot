@@ -30,7 +30,7 @@ async def banned(_, message):
                           await message.reply_text("checkout new banned user!",
                           reply_markup=InlineKeyboardMarkup(buttons))
                           return
-              mention = f"tg://user?id={user.id}")
+              mention = f"tg://user?id={user.id}"
               buttons = [[InlineKeyboardButton("ᴜɴʙᴀɴ" , callback_data="unban"),
                                       InlineKeyboardButton("ᴅᴇʟᴇᴛᴇ" , callback_data="delete")]]
               await bot.send_message("NandhaSystem", 
