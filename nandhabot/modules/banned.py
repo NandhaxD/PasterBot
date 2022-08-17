@@ -31,7 +31,9 @@ async def banned(_, message):
                   await bot.send_message("@NandhaSystem", banned_text.format(message.reply_to_message.link,USER.mention,USER.id,reason),
                   reply_markup=InlineKeyboardMarkup(buttons))
             else:
-                   user_id = message.text.split(" ")[1]
+                   if not message.reply_to_message:
+                        user_id = message.text.split(" ")[1]
+                        return 
                    if user_id in BANNED:
                        await message.reply_text("this son of bitch already banned!")
                    elif user_id not in BANNED:
@@ -40,3 +42,20 @@ async def banned(_, message):
         except Exception as e:
                         await message.reply_text(f"Error: {e}")
                          
+@bot.on_message(filters.command(["rban","removeban"]))
+async def removeban(_, message):
+          if message.from_user.id in config.OWNER_ID:
+          try:
+             if message.reply_to_message.from_user.id not in BANNED:
+                    await message.reply_text("user is not banned!")
+                    return 
+              if message.reply_to_message.from_user.id in BANNED:
+                       BANNED.remove(message.reply_to_message.from_user.id)
+                       await message.reply_text("Successfully remove ban")
+                       return 
+          except Exception as e:
+                        await message.reply_text(f"Error: {e}")
+     
+               
+                   
+
