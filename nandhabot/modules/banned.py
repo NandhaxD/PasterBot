@@ -30,11 +30,11 @@ async def banned(_, message):
                           await message.reply_text("checkout new banned user!",
                           reply_markup=InlineKeyboardMarkup(buttons))
                           return
-              mention = f"tg://user?id={user.id}"
-              buttons = [[InlineKeyboardButton("ᴜɴʙᴀɴ" , callback_data="unban"),
+             mention = f"tg://user?id={user.id}"
+             buttons = [[InlineKeyboardButton("ᴜɴʙᴀɴ" , callback_data="unban"),
                                       InlineKeyboardButton("ᴅᴇʟᴇᴛᴇ" , callback_data="delete")]]
-              await bot.send_message("NandhaSystem", 
-              banned_text.format(mention,user.id,reason),reply_markup=InlineKeyboardMarkup(buttons))
+             await bot.send_message("NandhaSystem", 
+             banned_text.format(mention,user.id,reason),reply_markup=InlineKeyboardMarkup(buttons))
         except Exception as e:
                         await message.reply_text(f"Error: {e}")
 
