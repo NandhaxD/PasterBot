@@ -6,7 +6,7 @@ from nandhabot.modules.start import BANNED
 
 banned_text = """**Nandha System!**
 
-**target msg:** {}
+**target msg:** [link]({})
 **Banned user:** {}
 **Banned ID:**  {}
 **Reason:** {}
