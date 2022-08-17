@@ -20,7 +20,7 @@ async def banned(_, message):
                  return 
             elif message.reply_to_message:
                   USER = message.reply_to_message.from_user
-                  text = message.text.split(" ")[1]
+                  text = message.text.split(None, 1)[1]
                   if not text:
                          text = "ɴᴏ ʀᴇᴀsᴏɴ"
                   else:
