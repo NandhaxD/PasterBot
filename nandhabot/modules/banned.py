@@ -44,9 +44,8 @@ async def banned(_, message):
                          
 @bot.on_message(filters.command(["rban","removeban"]))
 async def removeban(_, message):
-          if message.from_user.id in config.OWNER_ID:
           try:
-             if message.reply_to_message.from_user.id not in BANNED:
+              if message.reply_to_message.from_user.id not in BANNED:
                     await message.reply_text("user is not banned!")
                     return 
               if message.reply_to_message.from_user.id in BANNED:
