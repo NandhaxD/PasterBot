@@ -4,19 +4,19 @@ from nandhabot import bot
 from pyrogram.types import *
 
 ABOUT_TEXT = """
--Welcome to Nandha's System-:
+**--Welcome to Nandha's System--**:
 
 want to know what's this bot? 
 (thinking)
 
 Want to know Nandha's total bots list? 
-(below click the *BOTLIST* button)
+(below click the **BOTLIST** button)
 
 want to know Nandha's Owned UserNames?
-(below click the *OWNED UN* button)
+(below click the **Founding UN** button)
 
 want to know moi others social media's links?
-(below click the *Social* button)
+(below click the **Social** button)
 
 """
 
