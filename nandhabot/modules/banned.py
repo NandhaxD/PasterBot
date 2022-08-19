@@ -25,8 +25,7 @@ async def banned(_, message):
              elif len(message.command) <3:
                    await message.relpy_text("give a Reason for Banning")
                    reason = message.text.split(" ")[2]
-                   return      
-             user = await bot.get_chat(USER)        
+                   return              
              elif user.id in BANNED:
                        await message.reply_text("this son of bitch already banned!")
              elif user.id not in BANNED:
