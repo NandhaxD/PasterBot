@@ -18,11 +18,11 @@ async def banned(_, message):
                   await message.reply_text("@NandhaNetworkBot: Read The guild First")
                   return 
              elif not message.reply_to_message:
-                        if len(message.command) <2:
+                        elif len(message.command) <2:
                              await message.reply_text("give a userID")       
                              USER = message.text.split(" ")[1]
                              return 
-                        if len(message.command) <3:
+                        elif len(message.command) <3:
                              await message.relpy_text("give a Reason for Banning")
                              reason = message.text.split(" ")[2]
                              return      
