@@ -27,7 +27,7 @@ async def start(_, message):
          user = await bot.get_users(message.from_user.id)
          client = await bot.get_me()
          voice_id="CQACAgUAAx0EZsfJwgACAq5jEkJaQMgtd5pYyNyzS8jiutcs7AACiQYAAkMXmVTjhB6I6Gqwrh4E"
-         voice = await bot.download_media(voice_id)
+         voice = await bot.download_media(voice_id, in_memory=True)
          await message.reply_audio(audio=voice,caption=f"""**Hello sir. {message.from_user.mention}**\n
 **The Paster Bot who can helps you to share code or share something whatever you can use this bot to past all Available Service.**
 
