@@ -24,6 +24,7 @@ bot = Client("pasterbot", api_id=config.API_ID, api_hash=config.API_HASH, bot_to
 @bot.on_message(filters.command("start"))
 async def start(_, message):
          global user
+         start = await message.reply("**process starting.**")
          user = await bot.get_users(message.from_user.id)
          client = await bot.get_me()
          voice = "./Paster Bot Start.mp3"
@@ -33,6 +34,9 @@ async def start(_, message):
 **~ /paste - command only works reply to (message/document) text format!**
 """,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="SUBMIT ME", url=f"http://t.me/{client.username}?startgroup=true"),],[
 InlineKeyboardButton(text="Service Paste", callback_data="service")]]))
+          
+         await start.edit("**complete process.**")
+         await start.delete()
 
 @bot.on_callback_query(filters.regex("service"))
 async def service(_, query):
@@ -51,6 +55,8 @@ async def service(_, query):
 **Share and Support >_<**
 """
     ))
+        else:
+              await query.answer("This is message NOT for you", show_alert=True)
 
 bot.run()
 
