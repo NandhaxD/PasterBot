@@ -118,7 +118,6 @@ async def paste(_, m):
         msg = await m.reply("**Starting to Past  Process.**")
         spacebin_url = spacebin(file_text)
         safone_url = await Safone.paste(file_text)
-        
         ezup_link = await ezup(file_text)
         resp = await send(f"{BASE}api/v2/paste", data=file_text)
         code = resp["message"]
@@ -149,7 +148,7 @@ async def paste(_, m):
         
 
  except Exception as e:
-       await m.edit(f"**ERROR**: {e}")
+       await msg.edit(f"**ERROR**: {e}")
 
 bot.run()
 
