@@ -29,7 +29,7 @@ Made by @NandhaBots**
 """)
 
 
-bot.start()
+bot.run()
 
 
          
