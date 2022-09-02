@@ -31,7 +31,7 @@ aiohttpsession = ClientSession()
 
 session  = aiohttpsession
 
-async def post(url: str, *args, **kwargs):
+async def send(url: str, *args, **kwargs):
     async with session.post(url, *args, **kwargs) as resp:
         try:
             data = await resp.json()
