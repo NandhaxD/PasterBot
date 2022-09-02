@@ -1,1 +1,1 @@
-worker: python3 -m nandhabot
+worker: python3 -m main
