@@ -39,7 +39,7 @@ async def service(_, query):
         if query.from_user.id == user.id:
             await query.message.edit_media(
                        media=InputMediaPhoto(
-      "https://telegra.ph/file/f8b805ef62015112055dd.jpg",
+      "http://telegra.ph/file/b4c7453a0b5c62df60063.jpg",
       caption=f"""
 **Available Service Paste!**
 
