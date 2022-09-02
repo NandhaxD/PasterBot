@@ -6,6 +6,8 @@ import os
 import aiofiles
 import socket
 
+from asyncio import get_running_loop
+from functools import partial
 from aiohttp import ClientSession
 from pyrogram import idle, Client 
 from pyrogram import filters
