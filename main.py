@@ -22,6 +22,8 @@ bot = Client("pasterbot", api_id=config.API_ID, api_hash=config.API_HASH, bot_to
 
 @bot.on_message(filters.command("start"))
 async def start(_, message):
+         global user
+         user = await get_users(message.from_user.id)
          client = await bot.get_me()
          await message.reply_text(f"""**Hello sir. {message.from_user.mention}**\n
 **The Paster Bot who can helps you to share code or share something whatever you can use this bot to past all Available Service.**
@@ -30,6 +32,23 @@ async def start(_, message):
 """,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="SUBMIT ME", url=f"http://t.me/{client.username}?startgroup=true"),],[
 InlineKeyboardButton(text="Service Paste", callback_data="service")]]))
 
+@bot.on_callback_query(filters.regex("service"))
+async def service(_, query):
+        if query.from_user.id == user.id:
+            await query.message.edit_media(
+                       media=InputMediaPhoto(
+      "https://telegra.ph/file/f8b805ef62015112055dd.jpg",
+      caption=f"""
+**Available Service Paste!**
+
+~ batbin/me.com
+~ paste.safone.tech
+~ spaceb.in
+~ ezup.dev
+
+**Share and Support >_<**
+"""
+    ))
 
 bot.run()
 
