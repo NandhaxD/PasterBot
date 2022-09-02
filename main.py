@@ -62,11 +62,11 @@ BATBIN_URL = "batbin.me/"
 
 @bot.on_message(filters.command(["paste","batbin"]))
 async def paste(_, message):
-          text = message.command[0] == "b":
-          resp = await send(f"{BATBIN_URL}api/v2/paste", data=file_text)
-          code = resp["message"]
-          bat_link = f"{BATBIN_URL}{code}"
-          await message.reply_photo(bat_link,caption=f"**Successfully Pasted Batbin.me Service**: **Paster Link**:{batlink}")
+          if message.command[0] == "b":
+              resp = await send(f"{BATBIN_URL}api/v2/paste", data=file_text)
+              code = resp["message"]
+              bat_link = f"{BATBIN_URL}{code}"
+              await message.reply_photo(bat_link,caption=f"**Successfully Pasted Batbin.me Service**: **Paster Link**:{batlink}")
          
 
 bot.run()
