@@ -100,7 +100,8 @@ async def service(_, query):
         else:
               await query.answer("This is message NOT for you", show_alert=True)
 
-BATBIN_URL = "batbin.me/"
+BASE = "batbin.me/"
+
 
 @bot.on_message(filters.command('paste'))
 async def paste(_, m):
@@ -113,9 +114,10 @@ async def paste(_, m):
         async with aiofiles.open(doc, mode="r") as f:
           file_text = await f.read()
         os.remove(doc)
-        msg = await m.reply("**Starting to Past Process.**")
+        msg = await m.reply("**Starting to Past All**")
         spacebin_url = spacebin(file_text)
         safone_url = await Safone.paste(file_text)
+        
         ezup_link = await ezup(file_text)
         resp = await send(f"{BASE}api/v2/paste", data=file_text)
         code = resp["message"]
@@ -128,20 +130,25 @@ async def paste(_, m):
                          ],[ InlineKeyboardButton("EZUP.DEV", url=ezup_link),],[ InlineKeyboardButton(text="SAFONE", url=safone_url.link),]]))
     elif reply.text or reply.caption:
           text = reply.text or reply.caption
-          msg = await m.reply("**Starting to Past Process.**")                
+          msg = await m.reply("**Starting to Past All**")                
           spacebin_url = spacebin(text)
           link = await ezup(text)
           safone_url = await Safone.paste(text)
           resp = await send(f"{BASE}api/v2/paste", data=text)
           code = resp["message"]
           bat_link = f"{BASE}{code}"
-          await msg.edit("**Process Complete.**")                 
+          await msg.edit("**Process Complete**")                 
           caption = f"[SPACEBIN]({spacebin_url}) | [EZUP.DEV]({link})\n [SAFONE]({safone_url.link}) | [BATBIN]({bat_link}) "
           await m.reply_photo(photo=bat_link,caption=caption,
                       reply_markup=InlineKeyboardMarkup(
                           [[InlineKeyboardButton(text="BATBIN", url=bat_link),],[InlineKeyboardButton(text="SAFONE", url=safone_url.link), ],[ InlineKeyboardButton("SPACEBIN", url=spacebin_url),
                            ],[ InlineKeyboardButton("EZUP.DEV", url=link)]]))
     
+        
+        
+
+ except Exception as e:
+       await m.reply(f"**ERROR**: {e}")
 
 bot.run()
 
