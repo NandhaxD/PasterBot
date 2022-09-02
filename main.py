@@ -58,10 +58,15 @@ async def service(_, query):
         else:
               await query.answer("This is message NOT for you", show_alert=True)
 
-@bot.on_message(filters.command("paste"))
+BATBIN_URL = "batbin.me/"
+
+@bot.on_message(filters.command(["paste","batbin"]))
 async def paste(_, message):
-          user = message.command[1]
-          await message.reply(user)
+          text = message.command[0] == "b":
+          resp = await send(f"{BATBIN_URL}api/v2/paste", data=file_text)
+          code = resp["message"]
+          bat_link = f"{BATBIN_URL}{code}"
+          await message.reply_photo(bat_link,caption=f"**Successfully Pasted Batbin.me Service**: **Paster Link**:{batlink}")
          
 
 bot.run()
