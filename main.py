@@ -58,6 +58,12 @@ async def service(_, query):
         else:
               await query.answer("This is message NOT for you", show_alert=True)
 
+@bot.on_message(filters.command("paste"))
+async def paste(_, message):
+          user = message.command[1]
+          await message.reply(user)
+         
+
 bot.run()
 
 
