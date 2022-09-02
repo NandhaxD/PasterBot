@@ -22,4 +22,6 @@ async def start(_, message):
 Made by @NandhaBots**")
 
 
+idle()
+
          
