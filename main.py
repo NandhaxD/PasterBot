@@ -6,7 +6,8 @@ from pyrogram import idle, Client
 from pyrogram import filters
 from pyrogram.types import ( 
 InlineKeyboardButton, 
-InlineKeyboardMarkup, )
+InlineKeyboardMarkup, 
+InputMediaPhoto)
  
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
