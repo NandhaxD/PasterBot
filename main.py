@@ -27,9 +27,11 @@ from SafoneAPI import SafoneAPI
 Safone = SafoneAPI()
 
 bot = Client("pasterbot", api_id=config.API_ID, api_hash=config.API_HASH, bot_token=config.BOT_TOKEN)
-session = ClientSession()
+aiohttpsession = ClientSession()
 
-async def send(url: str, *args, **kwargs):
+session  = aiohttpsession
+
+async def post(url: str, *args, **kwargs):
     async with session.post(url, *args, **kwargs) as resp:
         try:
             data = await resp.json()
