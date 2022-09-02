@@ -74,7 +74,8 @@ async def start(_, message):
          user = await bot.get_users(message.from_user.id)
          client = await bot.get_me()
          voice = "./Paster Bot Start.mp3"
-         await message.reply_audio(audio=voice,caption=f"""**Hello sir. {message.from_user.mention}**\n
+         thumb = "./"
+         await message.reply_audio(audio=voice,title="PasterBot",thumb=thumb_id,caption=f"""**Hello sir. {message.from_user.mention}**\n
 **The Paster Bot who can helps you to share code or share something whatever you can use this bot to past all Available Service.**
 
 **~ /paste - command only works reply to (message/document) text format!**
