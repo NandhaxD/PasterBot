@@ -1,7 +1,7 @@
 import requests 
 import config
 
-from pyrogram import 
+from pyrogram import idle, Client 
 from pyrogram import filters
 from pyrogram.types import ( 
 InlineKeyboardButton, 
