@@ -26,7 +26,7 @@ async def start(_, message):
          global user
          user = await bot.get_users(message.from_user.id)
          client = await bot.get_me()
-         await message.reply_photo(photo="https://telegra.ph/file/43c535ec53785e15b3203.jpg",f"""**Hello sir. {message.from_user.mention}**\n
+         await message.reply_photo(photo="https://telegra.ph/file/43c535ec53785e15b3203.jpg",caption=f"""**Hello sir. {message.from_user.mention}**\n
 **The Paster Bot who can helps you to share code or share something whatever you can use this bot to past all Available Service.**
 
 **~ /paste - command only works reply to (message/document) text format!**
