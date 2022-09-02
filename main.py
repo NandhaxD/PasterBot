@@ -6,6 +6,7 @@ import os
 import aiofiles
 import socket
 
+from aiohttp import ClientSession
 from pyrogram import idle, Client 
 from pyrogram import filters
 from pyrogram.types import ( 
@@ -24,6 +25,7 @@ from SafoneAPI import SafoneAPI
 Safone = SafoneAPI()
 
 bot = Client("pasterbot", api_id=config.API_ID, api_hash=config.API_HASH, bot_token=config.BOT_TOKEN)
+session = ClientSession()
 
 async def send(url: str, *args, **kwargs):
     async with session.post(url, *args, **kwargs) as resp:
