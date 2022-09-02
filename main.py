@@ -26,7 +26,8 @@ async def start(_, message):
          await message.reply_text(f"""**Hello sir, {message.from_user.mention}**
 **commands: /paste - reply to message text or  file text to Paste All  Available Servers.
 
-Made by @NandhaBots**")
+Made by @NandhaBots**
+""")
 
 
 idle()
