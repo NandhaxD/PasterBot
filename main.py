@@ -28,7 +28,7 @@ Made by @NandhaBots**
 """)
 
 
-bot.run()
+bot.start()
 
 
          
