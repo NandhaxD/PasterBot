@@ -102,9 +102,6 @@ async def service(_, query):
         else:
               await query.answer("This is message NOT for you", show_alert=True)
 
-BASE = "batbin.me/"
-
-
 @bot.on_message(filters.command('paste'))
 async def paste(_, m):
  try:
@@ -116,7 +113,7 @@ async def paste(_, m):
         async with aiofiles.open(doc, mode="r") as f:
           file_text = await f.read()
         os.remove(doc)
-        msg = await m.reply("**Starting to Past All**")
+        msg = await m.reply("**Starting to Past  Process.**")
         spacebin_url = spacebin(file_text)
         safone_url = await Safone.paste(file_text)
         
@@ -150,7 +147,7 @@ async def paste(_, m):
         
 
  except Exception as e:
-       await m.reply(f"**ERROR**: {e}")
+       await m.edit(f"**ERROR**: {e}")
 
 bot.run()
 
