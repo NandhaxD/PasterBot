@@ -5,6 +5,7 @@ from requests import post, get
 import os
 import aiofiles
 import socket
+import time
 
 from asyncio import get_running_loop
 from functools import partial
@@ -15,7 +16,30 @@ from pyrogram.types import (
 InlineKeyboardButton, 
 InlineKeyboardMarkup, 
 InputMediaPhoto)
- 
+
+StartTime = time.time()
+
+def get_readable_time(seconds: int) -> str:
+    count = 0
+    ping_time = ""
+    time_list = []
+    time_suffix_list = ["s", "m", "h", "days"]
+    while count < 4:
+        count += 1
+        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
+        if seconds == 0 and remainder == 0:
+            break
+        time_list.append(int(result))
+        seconds = int(remainder)
+    for x in range(len(time_list)):
+        time_list[x] = str(time_list[x]) + time_suffix_list[x]
+    if len(time_list) == 4:
+        ping_time += time_list.pop() + ", "
+    time_list.reverse()
+    ping_time += ":".join(time_list)
+    return ping_time
+
+
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[logging.FileHandler('logs.txt'),
@@ -104,6 +128,16 @@ async def service(_, query):
     ))
         else:
               await query.answer("This is message NOT for you", show_alert=True)
+
+@bot.on_message(filters.command("ping", prefixes=['/', '.', '?', '-']))
+async def ping(_, m):
+    start_time = time.time()
+    end_time = time.time()
+    ping_time = round((end_time - start_time) * 1000, 3)
+    uptime = get_readable_time((time.time() - StartTime))
+    ping_message = await m.reply_text("Processing ...")
+    await ping_message.edit_text(text=f"**🏓 PONG!!:** `{ping_time} ms`\n**🆙 UPTIME:** `{uptime}`")
+    
 
 @bot.on_message(filters.command('paste'))
 async def paste(_, m):
